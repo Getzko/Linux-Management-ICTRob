@@ -1,7 +1,7 @@
 # Assingment 0
 ## **Virtual Machine setup**
 Account is made by using our official HAMK student ID on Microsoft Azure. Using 'Education' page, we request 100 Euro via option 'Azure for students' option. With them we are able to buy a virtual machine. 
-### Virtual Machine setup:
+### Virtual Machine specifications:
 Server: Ubuntu Server 24.04 LTS gen 2
 Size: Standard D2s v3
 Location: Norway East (Zone 2)
