@@ -4,4 +4,4 @@ To save content of level 2 directories in one file, we need first create these d
 ## Code and Results
 "touch" to create file, then we print via "echo" and copy content as text with "ls" to our designated file. The ">>" serves as symbol "from where to where move the text".
 This is the output:
-![second](/screenshots02/second.png)
+![second](Assingment02/screenshots02/second.png)
