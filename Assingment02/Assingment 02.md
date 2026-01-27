@@ -3,5 +3,5 @@ To save content of level 2 directories in one file, we need first create these d
 ![first](./screenshots02/first.png)
 ## Code and Results
 "Touch" to create file, then we print via "echo" and copy content as text with "ls" to our designated file. The ">>" serves as symbol "from where to where move the text".
-This is the output:/
+This is the output:\
 ![second](./screenshots02/second.png)
