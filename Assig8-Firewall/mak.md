@@ -1,10 +1,9 @@
 # Firewall setup
  I start with UFW. Since its inactive, we install and update it. I limit and apply basic firewall instructions to my virtual machine using commands in the presentations. The result:\
-![ss1](sshots/nr1.png)
+![ss1](sshots/nr1.png)\
  The logs are on, they are on 'low' level. Even though, the log file is already long and contains lots of entries. This is also the fact for kern.log and syslog.\
-![ss2](sshots/nr2.png)
+![ss2](sshots/nr2.png)\
  With this settings, server is blocking all incoming except ssh, http and https. Ssh has a rate limit.
-
  Now after downloading iptables I can create and configure firewall.sh file for firewall rules.
 
 ## fw.sh
@@ -31,12 +30,15 @@ iptables -A INPUT -m conntrack -cstate INVALID -j DROP
 iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW -j LOG --log-prefix "SSH_CONNECTION: "
 iptables -A INPUT -p tcp -s $MY_IP --dport 22 -m conntrack --ctstate NEW -j ACCEPT
 iptables -A INPUT -p tcp --dport 22 -j DROP
+
 # HTTP ( allows web services )
 iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW -j LOG --log-prefix "HTTP_CONNECTION: "
 iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW -j ACCEPT
+
 # HTTPS (allows web services)
 iptables -A INPUT -p tcp --dport 443 -m conntrack --ctstate NEW -j LOG --log-prefix "HTTPS_CONNECTION: "
 iptables -A INPUT -p tcp --dport 443 -m conntrack --ctstate NEW -j ACCEPT
+
 # SYN flood protection ( Prevents syn flood DDOS attacks )
 iptables -A INPUT -p tcp --syn -m limit --limit 5/s --limit-burst 10 -j ACCEPT
 iptables -A INPUT -p tcp --syn -j DROP
